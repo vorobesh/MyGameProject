@@ -1,21 +1,35 @@
 import GameBoard from "../GameBoard/GameBoard";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom";
-import { Provider } from 'react-redux'
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import{ Provider } from 'react-redux'
 import { store } from '../../redux/store'
+import Nav from '../Nav/Nav'
+import Home from '../Home/Home'
+import Registration from '../Registration/Registration'
+import Login from '../Login/Login'
+import Profile from '../Profile/Profile'
+
 
 function App() {
+
+
+
   return (
+
     <BrowserRouter>
       <Provider store={store}>
-        <Routes>
-          <Route path="/game" element={<GameBoard />}></Route>
-        </Routes>
+      <Nav />
+
+      <Routes>
+        <Route path='/' element={<Home/>} />
+        <Route path='/registration' element={<Registration />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/profile' element={<Profile/>} />
+        <Route path='/game' element={<GameBoard />} />
+      </Routes>
+      
       </Provider>
     </BrowserRouter>
+
   );
 }
 
