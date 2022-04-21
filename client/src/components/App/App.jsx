@@ -12,6 +12,7 @@ function App() {
 
 
   return (
+
     <BrowserRouter>
       <Provider store={store}>
       <Nav />
@@ -26,6 +27,7 @@ function App() {
       
       </Provider>
     </BrowserRouter>
+
   );
 }
 
