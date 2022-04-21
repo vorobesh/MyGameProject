@@ -1,0 +1,7 @@
+.topic{
+  width: 6rem;
+  height: 6rem;
+  border: 2px solid black;
+  border-radius: 10px;
+  text-align: center;
+}
