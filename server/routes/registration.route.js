@@ -9,6 +9,7 @@ const {
 
 router.route('/')
   .post(async (req, res) => {
+    console.log('12', req.body)
     try {
       const {
         userName,
@@ -32,7 +33,7 @@ router.route('/')
               user_name: userName,
               user_email: userEmail,
               user_password: hashPassword,
-            });
+            })
 
             req.session.user = {
               user_name: userCreatedOrLoggining.user_name,

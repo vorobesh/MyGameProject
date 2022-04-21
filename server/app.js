@@ -11,7 +11,7 @@ const PORT = process.env.PORT ?? 4000;
 
 config(app);
 
-app.use('/register', registrationRouter);
+app.use('/registration', registrationRouter);
 app.use('/logout', logoutRouter);
 app.use('/login', loginRouter);
 

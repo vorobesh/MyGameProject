@@ -1,8 +1,10 @@
+import Registration from "../Registration/Registration";
+
 function App() {
   return (
-    <div className="App">
-      Hello World
-    </div>
+    <>
+      <Registration />
+    </>
   );
 }
 
