@@ -39,7 +39,8 @@ function GameQuestions({ question }) {
   
   return (
     <div>
-      <a className="waves-effect  waves-light btn modal-trigger" onClick={openModal} href={`#modal${question.id}`}>{question.question_price} </a>
+      {isAnswered ? <a className="waves-effect  waves-light btn modal-trigger" onClick={openModal} href={`#modal${question.id}`}>{question.question_price} </a> :
+        <a className="waves-effect  waves-light btn modal-trigger disabled" onClick={openModal} href={`#modal${question.id}`}>{question.question_price} </a>}
       <div id={`modal${question.id}`} className={`modal ${styles.modal}`} >
         <div className="modal-content">
           <h4>Тема: {topics.find((topic) => topic.id === question.topic_id).topic_name}</h4>

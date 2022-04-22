@@ -1,8 +1,11 @@
 .game_board {
-  display: flex;
+  /* display: flex; */
   color:azure;
   width: 60rem;
-  justify-content: space-around;
-  flex-direction: column;
-  align-items: center;
+  /* justify-content: center; */
+  /* flex-direction:row;
+  align-items: center; */
+margin-left: auto;
+margin-right: auto;
+margin-top: 5rem;
 }
