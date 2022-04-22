@@ -16,6 +16,10 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false,
       },
+      question_price: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
       topic_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
