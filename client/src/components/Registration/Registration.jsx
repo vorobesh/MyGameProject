@@ -1,13 +1,18 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import style from './Registration.module.css'
 
 
 export function Registration(props) {
 
   const dispatch = useDispatch()
+  const navigate = useNavigate();
   const { infoFromBack } =useSelector(state => state.userState);
   const { user }=useSelector(state => state.userState);
+  console.log('infoFromBack', infoFromBack)
+  console.log('user', user)
+  
 
   const getUserData = (e) => {
     e.preventDefault();
@@ -23,6 +28,7 @@ export function Registration(props) {
       userPass,
       userPassRepeat,
     }
+    console.log('28', body)
 
     fetch('/registration', {
       method: 'POST',
@@ -33,9 +39,12 @@ export function Registration(props) {
     })
       .then(data => data.json())
       .then(res => {
+        console.log('38', res)
         if (res.successRegistration) {
           dispatch({type: 'REGISTER_OR_LOGIN_USER', payload: res})
+          navigate('/')
         }
+        dispatch({type: 'REGISTER_OR_LOGIN_USER', payload: res})
       })
   }
 
@@ -68,7 +77,7 @@ export function Registration(props) {
             </div>
           </div>
           <div>
-            {infoFromBack || user.message}
+          {infoFromBack}
           </div>
           <button className={`btn waves-effect waves-light ${style.registration}`} type="submit" name="action">Зарегистрироваться
           </button>
