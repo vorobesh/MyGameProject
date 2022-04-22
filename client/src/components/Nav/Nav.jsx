@@ -12,6 +12,7 @@ function Nav(props) {
             <li><Link to="/login">Логин</Link></li>
             <li><Link to="/game">Играть</Link></li>
             <li><Link to="/profile">Профиль</Link></li>
+            <li><Link to="/doloyUniniye">Приуныл?</Link></li>
           </ul>
         </div>
      </nav>
