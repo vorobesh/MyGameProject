@@ -1,0 +1,17 @@
+.login {
+  background-color: mediumseagreen;
+  /* background-color: red; */
+}
+
+.color_form {
+  color: black;
+  background-color: azure;
+  width: 50rem;
+  /* background-color: red; */
+}
+.div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: azure;
+}
