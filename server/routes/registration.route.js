@@ -9,7 +9,6 @@ const {
 
 router.route('/')
   .post(async (req, res) => {
-    console.log('12', req.body)
     try {
       const {
         userName,

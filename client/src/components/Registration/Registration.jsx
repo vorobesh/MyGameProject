@@ -1,17 +1,18 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import style from './Registration.module.css'
 
 
 export function Registration(props) {
 
   const dispatch = useDispatch()
+  const { infoFromBack } =useSelector(state => state.userState);
+  const { user }=useSelector(state => state.userState);
 
   const getUserData = (e) => {
     e.preventDefault();
 
     const userName = e.target.user_name.value;
-    console.log('14', userName)
     const userEmail = e.target.user_email.value;
     const userPass = e.target.user_password.value;
     const userPassRepeat = e.target.password_validation.value;
@@ -23,8 +24,6 @@ export function Registration(props) {
       userPassRepeat,
     }
 
-    let message = '';
-
     fetch('/registration', {
       method: 'POST',
       headers: {
@@ -34,12 +33,9 @@ export function Registration(props) {
     })
       .then(data => data.json())
       .then(res => {
-        message = res.message;
         if (res.successRegistration) {
-          localStorage.setItem('user', JSON.stringify(res.userCreatedOrLoggining));
+          dispatch({type: 'REGISTER_OR_LOGIN_USER', payload: res})
         }
-        dispatch({type: 'REGISTER_OR_LOGIN_USER', payload: res.userCreatedOrLoggining})
-        return
       })
   }
 
@@ -72,8 +68,7 @@ export function Registration(props) {
             </div>
           </div>
           <div>
-            {/* {} */}
-            {/* {message} */}
+            {infoFromBack || user.message}
           </div>
           <button className={`btn waves-effect waves-light ${style.registration}`} type="submit" name="action">Зарегистрироваться
           </button>
