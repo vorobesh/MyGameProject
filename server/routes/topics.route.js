@@ -3,7 +3,7 @@ const { Topic } = require('../db/models');
 
 router.get('/', async (req, res) => {
   const topics = await Topic.findAll({ raw: true });
-  console.log(topics);
+  // console.log(topics);
   res.json(topics);
 });
 

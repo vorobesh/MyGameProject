@@ -1,6 +1,6 @@
 const initialState = { topics: [], points: 0};
 
-export function gameBoardReducer(state = initialState, action) {
+export function topicsReducer(state = initialState, action) {
   switch (action.type) {
     case 'INIT_TOPICS':
       return { ...state, topics: action.payload }
