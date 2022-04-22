@@ -4,7 +4,15 @@ const bcrypt = require('bcrypt');
 
 const { User } = require('../db/models');
 
-router.route('/')
+router
+  .route('/')
+  .get((req, res) => {
+    if (req.session.user) {
+      res.json({ loggedIn: true, user: req.session.user });
+    } else {
+      res.json({ loggedIn: false });
+    }
+  })
   .post(async (req, res) => {
     try {
       const {

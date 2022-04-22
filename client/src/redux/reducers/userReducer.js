@@ -1,10 +1,13 @@
-const localStorageUserStr = localStorage.getItem('user');
+// // Сопособ посредством localStorage
+// const localStorageUserStr = localStorage.getItem('user');
 
-const localStorageUser = localStorageUserStr ?
-  JSON.parse(localStorageUserStr).userCreatedOrLoggining :
-  undefined;
+// const localStorageUser = localStorageUserStr ?
+//   JSON.parse(localStorageUserStr).userCreatedOrLoggining :
+//   undefined;
 
-const initialState = { user: localStorageUser, infoFromBack: '' }
+// const initialState = { user: localStorageUser, infoFromBack: '' }
+
+const initialState = { user: undefined, infoFromBack: '' }
 
 export function userReducer(state = initialState, action) {
   switch (action.type) {
@@ -17,6 +20,9 @@ export function userReducer(state = initialState, action) {
     
         case 'LOGOUT_USER':
           return {...state, user: undefined}
+        
+        case 'LOGGEDIN_USER':
+          return {...state, user: action.payload} 
           
     default:
       return state

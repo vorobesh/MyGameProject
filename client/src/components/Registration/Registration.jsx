@@ -1,17 +1,23 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import style from './Registration.module.css'
 
 
 export function Registration(props) {
 
   const dispatch = useDispatch()
+  const navigate = useNavigate();
+  const { infoFromBack } =useSelector(state => state.userState);
+  const { user }=useSelector(state => state.userState);
+  console.log('infoFromBack', infoFromBack)
+  console.log('user', user)
+  
 
   const getUserData = (e) => {
     e.preventDefault();
 
     const userName = e.target.user_name.value;
-    console.log('14', userName)
     const userEmail = e.target.user_email.value;
     const userPass = e.target.user_password.value;
     const userPassRepeat = e.target.password_validation.value;
@@ -22,8 +28,7 @@ export function Registration(props) {
       userPass,
       userPassRepeat,
     }
-
-    let message = '';
+    console.log('28', body)
 
     fetch('/registration', {
       method: 'POST',
@@ -34,12 +39,12 @@ export function Registration(props) {
     })
       .then(data => data.json())
       .then(res => {
-        message = res.message;
+        console.log('38', res)
         if (res.successRegistration) {
-          localStorage.setItem('user', JSON.stringify(res.userCreatedOrLoggining));
+          dispatch({type: 'REGISTER_OR_LOGIN_USER', payload: res})
+          navigate('/')
         }
-        dispatch({ type: 'REGISTER_OR_LOGIN_USER', payload: res.userCreatedOrLoggining })
-        return
+        dispatch({type: 'REGISTER_OR_LOGIN_USER', payload: res})
       })
   }
 
@@ -72,8 +77,7 @@ export function Registration(props) {
             </div>
           </div>
           <div>
-            {/* {} */}
-            {/* {message} */}
+          {infoFromBack}
           </div>
           <button className={`btn waves-effect waves-light ${style.registration}`} type="submit" name="action">Зарегистрироваться
           </button>
