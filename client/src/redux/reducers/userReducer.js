@@ -22,7 +22,6 @@ export function userReducer(state = initialState, action) {
           return {...state, user: undefined}
         
         case 'LOGGEDIN_USER':
-          const res = {...state, user: action.payload} 
           return {...state, user: action.payload} 
           
     default:

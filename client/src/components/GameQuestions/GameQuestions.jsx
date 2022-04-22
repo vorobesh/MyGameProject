@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 function GameQuestions({ question }) {
   const dispatch = useDispatch();
   const { topics } = useSelector(state => state.topics);
+  const localStoragePoints = localStorage.setItem('points', '');
 
 
   const [isAnswered, setIsAnswered] = useState(true)
@@ -25,6 +26,7 @@ function GameQuestions({ question }) {
       setIsCorrect(true);
 
       dispatch({ type: 'EDIT_POINTS', payload: question.question_price })
+
     } else {
       setIsAnswered(false);
       setIsCorrect(false);
@@ -34,6 +36,7 @@ function GameQuestions({ question }) {
 
     event.target.reset();
   }, [])
+  
   return (
     <div>
       <a className="waves-effect  waves-light btn modal-trigger" onClick={openModal} href={`#modal${question.id}`}>{question.question_price} </a>

@@ -1,3 +1,11 @@
+// const localStorageUserStr = localStorage.getItem('user');
+
+// const localStorageUser = localStorageUserStr ?
+//   JSON.parse(localStorageUserStr).userCreatedOrLoggining :
+//   undefined;
+
+// const initialState = { user: localStorageUser, infoFromBack: '' }
+
 const initialState = { topics: [], points: 0 };
 
 export function topicsReducer(state = initialState, action) {

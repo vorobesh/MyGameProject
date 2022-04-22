@@ -15,7 +15,8 @@ function Nav(props) {
 
     fetch('/logout')
       .then(response => {
-        dispatch({type: 'LOGOUT_USER'})
+        dispatch({type: 'LOGOUT_USER'});
+        navigate('/');
       })
   }
 
