@@ -9,7 +9,7 @@ const {
 
 router.route('/')
   .post(async (req, res) => {
-    console.log('12', req.body)
+    console.log('hi')
     try {
       const {
         userName,
@@ -17,7 +17,6 @@ router.route('/')
         userPass,
         userPassRepeat,
       } = req.body;
-
       if (userName && userEmail && userPass && userPassRepeat) {
         const user = await User.findOne({
           where: {
