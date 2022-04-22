@@ -7,7 +7,7 @@ import styles from './gameBoard.module.css'
 function GameBoard(props) {
   const dispatch = useDispatch();
   const { topics } = useSelector(state => state.topics);
-
+  const { points } = useSelector(state => state.topics);
 
   useEffect(() => {
     fetch('/topics')
@@ -26,7 +26,7 @@ function GameBoard(props) {
   return (
     <div className={styles.game_board}>
       {topics.map((topic) => <GameTopics key={topic.id} topic={topic} />)}
-
+      <div>Ваш счет: {points}</div>
     </div>
   );
 }

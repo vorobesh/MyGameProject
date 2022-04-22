@@ -7,6 +7,7 @@ function GameQuestions({ question }) {
   const dispatch = useDispatch();
   const { topics } = useSelector(state => state.topics);
 
+
   const [isAnswered, setIsAnswered] = useState(true)
   const [isCorrect, setIsCorrect] = useState(false)
 
@@ -22,9 +23,13 @@ function GameQuestions({ question }) {
     if (answer === question.question_answer) {
       setIsAnswered(false);
       setIsCorrect(true);
+
+      dispatch({ type: 'EDIT_POINTS', payload: question.question_price })
     } else {
       setIsAnswered(false);
       setIsCorrect(false);
+      dispatch({ type: 'EDIT_POINTS', payload: -question.question_price })
+
     }
 
     event.target.reset();
