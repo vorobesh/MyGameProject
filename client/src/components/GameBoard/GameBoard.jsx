@@ -26,7 +26,7 @@ function GameBoard(props) {
   return (
     <div className={styles.game_board}>
       {topics.map((topic) => <GameTopics key={topic.id} topic={topic} />)}
-      <div>Ваш счет: {points}</div>
+      <h4>Ваш счет: {points}</h4>
     </div>
   );
 }
