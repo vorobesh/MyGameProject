@@ -23,6 +23,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: false,
     },
+    question_price: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
     topic_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
