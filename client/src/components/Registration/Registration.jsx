@@ -38,7 +38,7 @@ export function Registration(props) {
         if (res.successRegistration) {
           localStorage.setItem('user', JSON.stringify(res.userCreatedOrLoggining));
         }
-        dispatch({type: 'REGISTER_OR_LOGIN_USER', payload: res.userCreatedOrLoggining})
+        dispatch({ type: 'REGISTER_OR_LOGIN_USER', payload: res.userCreatedOrLoggining })
         return
       })
   }
@@ -50,25 +50,25 @@ export function Registration(props) {
           <div className="row">
             <div className="input-field col s12">
               <input id="user_name" type="text" className="validate"></input>
-              <label for="user_name">Имя пользователя</label>
+              <label htmlFor="user_name">Имя пользователя</label>
             </div>
           </div>
           <div className="row">
             <div className="input-field col s12">
               <input id="user_email" type="email" className="validate"></input>
-              <label for="user_email">Электронная почта</label>
+              <label htmlFor="user_email">Электронная почта</label>
             </div>
           </div>
           <div className="row">
             <div className="input-field col s12">
               <input id="user_password" type="password" className="validate"></input>
-              <label for="user_password">Пароль</label>
+              <label htmlFor="user_password">Пароль</label>
             </div>
           </div>
           <div className="row">
             <div className="input-field col s12">
               <input id="password_validation" type="password" className="validate"></input>
-              <label for="password_validation">Повторите пароль</label>
+              <label htmlFor="password_validation">Повторите пароль</label>
             </div>
           </div>
           <div>
