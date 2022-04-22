@@ -1,0 +1,8 @@
+.game_board {
+  display: flex;
+  color:azure;
+  width: 60rem;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+}
