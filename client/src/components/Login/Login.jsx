@@ -40,8 +40,8 @@ function Login(props) {
   }
 
   return (
-    <div>
-      <div className="row">
+    <div className={style.div}>
+      <div className={`row ${style.color_form}`}>
         <form onSubmit={getUserData} className="col s12">
           <div className="row">
             <div className="input-field col s12">

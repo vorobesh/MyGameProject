@@ -21,7 +21,7 @@ function GameQuestions({ question }) {
 
     event.preventDefault();
     const answer = event.target.answer.value;
-    if (answer === question.question_answer) {
+    if (answer.toLowerCase() === question.question_answer.toLowerCase()) {
       setIsAnswered(false);
       setIsCorrect(true);
 
@@ -39,7 +39,7 @@ function GameQuestions({ question }) {
   
   return (
     <div>
-      {isAnswered ? <a className="waves-effect  waves-light btn modal-trigger" onClick={openModal} href={`#modal${question.id}`}>{question.question_price} </a> :
+      {isAnswered ? <a className={`waves-effect  waves-light btn modal-trigger ${styles.question}`}  onClick={openModal} href={`#modal${question.id}`}>{question.question_price} </a> :
         <a className="waves-effect  waves-light btn modal-trigger disabled" onClick={openModal} href={`#modal${question.id}`}>{question.question_price} </a>}
       <div id={`modal${question.id}`} className={`modal ${styles.modal}`} >
         <div className="modal-content">
@@ -47,7 +47,7 @@ function GameQuestions({ question }) {
           <h3>{question.question_name}</h3>
           {isAnswered ?
             <form onSubmit={getAnswer}>
-              <input id='answer' type="text" />
+              <input autocomplete='off' id='answer' type="text" />
               <button type='submit' className="waves-effect waves-light btn-large">Ответить</button>
             </form> : isCorrect ?
               <div>Верно! Вы заработали {question.question_price} очков!</div> :

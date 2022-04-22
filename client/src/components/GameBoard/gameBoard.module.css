@@ -1,6 +1,6 @@
 .game_board {
   /* display: flex; */
-  color:azure;
+  color:black;
   width: 60rem;
   /* justify-content: center; */
   /* flex-direction:row;
@@ -8,4 +8,10 @@
 margin-left: auto;
 margin-right: auto;
 margin-top: 5rem;
+}
+
+.text {
+  color: black;
+  font-weight: bold;
+  text-shadow: 1px 6px 2px green, 0 0 1em blue, 0 0 0.2em blue;
 }
